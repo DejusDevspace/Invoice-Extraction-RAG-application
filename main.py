@@ -21,27 +21,20 @@ def main():
     submit = st.button('Extract')
 
     if submit:
-        if uploaded_files is not None:
-            with st.spinner('Extracting data...'):
-                df = util.create_documents(uploaded_files)
-
-                # Display the first columns of the invoice dataframe
-                st.write(df.head())
-
-                # Provide the invoice data in csv format for download 
-                invoice_csv = df.to_csv(index=False).encode('utf-8')
-                st.download_button(
-                    label='Download Invoice',
-                    data=invoice_csv,
-                    file_name='invoice_data.csv',
-                    mime='text/csv',
-                    key='csv-download-invoice',
-                )
-                st.success('Invoice Extracted Successfully!')
-        else:
-            
-            st.error('Please Upload Invoice.')
-
+        with st.spinner('Extracting data...'):
+            df = util.create_documents(uploaded_files)
+            # Display the first columns of the invoice dataframe
+            st.write(df.head())
+            # Provide the invoice data in csv format for download 
+            invoice_csv = df.to_csv(index=False).encode('utf-8')
+            st.download_button(
+                label='Download Invoice',
+                data=invoice_csv,
+                file_name='invoice_data.csv',
+                mime='text/csv',
+                key='csv-download-invoice',
+            )
+            st.success('Invoice Extracted Successfully!')
 
 if __name__ == '__main__':
     main()
