@@ -60,7 +60,7 @@ def create_documents(files: list[str]) -> pd.DataFrame:
             {{'Invoice no.': xxxxxxxx','Description': 'xxxxxx','Quantity': 'x','Date': 'dd/mm/yyyy',
             'Unit price': xxx.xx','Amount': 'xxx.xx,'Total': xxx,xx,'Email': 'xxx@xxx.xxx','Phone number': 'xxxxxxxxxx','Address': 'xxxxxxxxx'}}
 
-            Remove any dollar symbols or currency symbols from the extracted values. Also avoid writing 'json' before the dictionary in the output.
+            Remove any dollar symbols or currency symbols from the extracted values. Also, ALWAYS avoid writing 'json' before the dictionary in the output.
             """
         
         # Prompt template
