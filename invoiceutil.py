@@ -69,7 +69,7 @@ def create_documents(files: list[str]) -> pd.DataFrame:
         chain = prompt | llm
         # Invoke the chain to get the dictionary 
         data = chain.invoke(text)
-        print('Dict ---', data)
+        # print('Dict ---', data)
 
         # Add the output from the llm to the pandas dataframe
         row_df = pd.DataFrame([eval(data)], columns=df.columns)
